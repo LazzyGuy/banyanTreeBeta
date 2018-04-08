@@ -4,7 +4,7 @@
       <nav-bar v-bind:a="a"></nav-bar>
     </nav>
 
-    <section class="main-body bg-dark">
+    <section class="main-body">
       <div class="feed-col">
         <!-- button for opeaning  -->
         <button type="button" class="btn banyan-btn-smooth" data-toggle="modal" data-target="#post">
@@ -178,6 +178,7 @@
     min-height: 100vh;
     height: 100%;
     margin-left: 60px;
+    background: url('../../assets/newbg.svg');
     overflow: hidden;
   }
 

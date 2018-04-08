@@ -33,10 +33,10 @@ export default {
 .card {
   -ms-flex: 1 1 1%;
   flex: 1 1 1%;
-  margin: 5px;
+  /* margin: 5px; */
   margin-left: 20px;
   margin-right: 80px;
-  z-index: 499;
+  /* z-index: 499; */
   font-family: Roboto;
   position: relative;
   display: -ms-flexbox;
@@ -48,8 +48,8 @@ export default {
   overflow: hidden;
   padding: 20px 20px 20px 20px;
   cursor: pointer;
-  background-color: #fff;
-  border-radius: 4px;
+  background-color: transparent;
+  border-radius: 10px;
   opacity: box-shadow .8;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   transition-property: color, background-color, box-shadow, transform;
@@ -57,7 +57,7 @@ export default {
 }
 .card > h2 {
   margin: 0 0 5px !important;
-  color: grey;
+  color: whitesmoke;
   text-transform: uppercase;
   font-size: 15px;
   margin: 10px;
@@ -71,12 +71,12 @@ export default {
 .card:active {
   transform: translateY(5px);
   box-shadow: 0 11px 20px rgba(50, 50, 93, 0.1), 0 6px 11px rgba(0, 0, 0, 0.08);
-  background: #eaeaea;
 }
 
 input{
-    border-radius: 0px;
+    /* border-radius: 20px; */
     padding: 10px;
     background: transparent;
+
 }
 </style>

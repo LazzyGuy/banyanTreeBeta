@@ -37,7 +37,7 @@ export default {
 
 
 section{
-    background: peru;
+    background: url('../../assets/newbg.svg');
     height: 100vh;
     margin-left: 60px;
 }

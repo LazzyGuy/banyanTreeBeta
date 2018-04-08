@@ -33,7 +33,6 @@ a:hover {
 .card {
   -ms-flex: 1 1 1%;
   flex: 1 1 1%;
-  margin: 15px;
   margin-left: 10%;
   margin-right: 10%;
   z-index: 499;
@@ -43,10 +42,9 @@ a:hover {
   position: relative;
   height: 500px;
   -ms-flex-pack: center;
-  margin-top: 100px;
   overflow: hidden;
   padding: 10px 10px 10px 10px;
-  background-color: #fff;
+  background: transparent;
   color: steelblue;
   border-radius: 4px;
   opacity: box-shadow .8;
@@ -68,8 +66,16 @@ a:hover {
 }
 
 .card p{
-    color: slategrey;
+    color: whitesmoke;
     font-size: 15px;
+}
+
+h2{
+  color: whitesmoke;
+}
+
+h6{
+  color: whitesmoke;
 }
 
 

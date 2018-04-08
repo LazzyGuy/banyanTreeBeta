@@ -6,6 +6,7 @@
 
     <div class="section-banyan banyan-container">
       
+      <div class="setting-container">
       <div class="display">
         <h1>Settings</h1>
         <p>Change your setting here!</p>
@@ -37,8 +38,10 @@
       </ca-rd>
 
       <div class="button-group">
-        <button class="btn btn-success" @click="save">SAVE</button>
-        <button class="btn btn-danger" @click="reset">CANCEL</button>
+        <button class="btn" @click="save">SAVE</button>
+        <button class="btn" @click="reset">CANCEL</button>
+      </div>
+
       </div>
 
     </div>
@@ -102,8 +105,10 @@ export default {
   text-align: left;
   height: 100%;
   top: 0;
-  background: lightskyblue;
   width: 100%;
+  display: flex;
+  background: url('../../assets/newbg.svg');
+  justify-content: center;
   overflow: hidden;
   position: fixed;
 }
@@ -112,7 +117,14 @@ export default {
   margin-left: 20px;
 }
 .display{
-  color: gray;
+  color: whitesmoke;
+}
+
+.setting-container{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width: 500px;
 }
 
 .button-group{
@@ -122,8 +134,16 @@ export default {
 }
 .button-group button{
   padding: 10px;
+  background: transparent;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.button-group button:hover{
+  background: whitesmoke;
+  color: black;
 }
 
 

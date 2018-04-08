@@ -41,6 +41,7 @@ a:hover {
   cursor: pointer;
   background-color: #fff;
   border-radius: 4px;
+  opacity: .9;
   opacity: box-shadow .8;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   transition-property: color, background-color, box-shadow, transform;
@@ -75,6 +76,8 @@ a:hover {
   color: #32325d !important;
   transform: translateY(-5px);
   box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1), 0 8px 15px rgba(0, 0, 0, 0.07);
+  opacity: 1;
+  
 }
 .card:hover > h2 {
   color: #32325d !important;
@@ -83,5 +86,6 @@ a:hover {
   transform: translateY(5px);
   box-shadow: 0 11px 20px rgba(50, 50, 93, 0.1), 0 6px 11px rgba(0, 0, 0, 0.08);
   background: #eaeaea;
+  opacity: 1;
 }
 </style>

@@ -47,8 +47,14 @@
 </script>
 
 <style scoped>
+*{
+  margin: 0;
+  padding: 0;
+}
   .main-banyan {
-    margin-left: 60px;
+    background: url('../../assets/newbg.svg');
+    height: 100vh;
+    padding-top: 100px;
   }
 
   /* .cover-image img{
