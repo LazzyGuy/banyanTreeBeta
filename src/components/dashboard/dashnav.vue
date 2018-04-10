@@ -117,7 +117,6 @@ import {logout} from '../../backend/logout'
     top: 0;
     background: whitesmoke;
     background-size: cover;
-    overflow-x: hidden;
   }
 
   @media screen and (max-width: 500px) {

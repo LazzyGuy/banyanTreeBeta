@@ -1,6 +1,7 @@
 <template>
   
   <div class="card">
+
       <h2>
           <slot name="title"></slot>
       </h2>
@@ -15,6 +16,7 @@
       <form>
           <slot name="input2"></slot>
       </form>
+      
   </div>
 
 </template>
@@ -76,7 +78,10 @@ export default {
 input{
     /* border-radius: 20px; */
     padding: 10px;
-    background: transparent;
-
+    opacity: 0.5;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 4px;
 }
 </style>

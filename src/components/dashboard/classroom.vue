@@ -5,23 +5,7 @@
     </nav>
 
     <section class="main-body">
-      <div class="chatbody">
-
-          <div class="chat-input" v-for="m in messList" v-bind:key="m.id">
-              <ch-at>                                                                       
-                  <template slot="name">name</template>
-                  <template slot="msg">{{m.msg}}</template>
-              </ch-at>
-          </div>
-
-
-
-          <div class="chat-box">
-              <input class="input-control" type="text" v-model="msg">
-              <button class="btn" @click="sendMsg">send</button>
-          </div>
-
-      </div>
+      <chat-ui></chat-ui>
     </section>
 
   </div>
@@ -29,7 +13,7 @@
 
 <script>
   import Dashnav from './dashnav'
-  import Chat from './smallcomponents/chatcard'
+  import ChatUi from './chat/chatUi'
   export default {
     name: 'classroom',
     data() {
@@ -47,7 +31,7 @@
     },
     components: {   
       'nav-bar': Dashnav,
-      'ch-at': Chat
+      'chat-ui': ChatUi
     },
     methods:{
         sendMsg: function(){
@@ -74,23 +58,5 @@
     height: 100vh;
     margin-left: 60px;
   }
-  .chatbody{
-      height: 100vh;
-      width: 500px;
-  }
-  .chat-box{
-      position: absolute;
-      bottom: 0;
-      margin: 20px;
-      padding: 20px;
-  }
-  .chat-box input{
-      padding: 10px;
-  }
-
-.chat-box button{
-    padding: 10px;
-}
-
-
+  
 </style>

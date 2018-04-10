@@ -6,10 +6,9 @@
 
     <div class="section-banyan banyan-container">
       
-      <div class="setting-container">
       <div class="display">
         <h1>Settings</h1>
-        <p>Change your setting here!</p>
+        <p>Change your settihere!</p>
       </div>
 
       <ca-rd>
@@ -45,7 +44,6 @@
       </div>
 
     </div>
-  </div>
 </template>
 
 

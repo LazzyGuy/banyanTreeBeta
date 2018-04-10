@@ -55,6 +55,7 @@
     background: url('../../assets/newbg.svg');
     height: 100vh;
     padding-top: 100px;
+    padding-left: 60px;
   }
 
   /* .cover-image img{
