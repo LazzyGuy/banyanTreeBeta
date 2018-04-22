@@ -11,7 +11,19 @@ import myprofile from '../components/profileview/myprofile'
 import welcome from '../components/profileview/welcome'
 import otherprofile from '../components/profileview/otherprofile'
 import change from '../components/profileview/change'
+import page404 from '../components/404page/404';
 Vue.use(Router)
+
+function checkIfLoggedIn(){
+  firebase.auth().onAuthStateChanged(function(user){
+      if(user){
+        return true
+      }
+      else{
+        return false
+      }
+  })
+}
 
 export default new Router({
   routes: [
@@ -69,6 +81,11 @@ export default new Router({
       path: '/settings',
       name: 'change',
       component: change
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: page404
     }
   ]
 })

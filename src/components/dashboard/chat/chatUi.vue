@@ -1,196 +1,217 @@
 <template>
-<div class="main-body">
+  <div class="main-body">
     <header>
-        <nav class="navbar bg-dark text-light">
-            <p class="navbar-brand">
-                Graphic Era Chat
-            </p>
-        </nav>
+      <nav class="navbar bg-dark text-light">
+        <p class="navbar-brand">
+          {{title}}
+        </p>
+      </nav>
     </header>
-    
-    <section>
 
-        <div class="fromOther">
-            <div class="message" v-for="ms in msgFromOther" v-bind:key="ms.id">
-                <div class="small-body">
-                    <p class="name">{{ms.name}}</p>
-                    <p class="name">{{ms.msg}}</p>
-                </div>
-            </div>
+    <div class="chatbox">
+      <div class="chatlogs">
+
+
+        <div class="chat" v-class="{'friend': isFriend,'self': isSelf}" v-for="msg in friend" v-bind:key="msg.id">
+          <div class="user-photo"><img :src="img2" alt=""></div>
+          <p class="chat-message">
+            {{msg.msg}}
+          </p>
         </div>
 
-        <div class="myMsg">
-            <div class="message-fromme" v-for="ms in myMsg" v-bind:key="ms.id">
-                <div class="small-body-me">
-                    <p class="name">{{ms.msg}}</p>
-                </div>
-            </div>
-        </div>
 
-    </section>
-    
-    <footer>
-        <form>
-            <input class="form-control" type="text" v-model="msg">
+        <!-- <div class="chat self" v-for="msg in self" v-bind:key="msg.id">
+          <div class="user-photo"><img :src="img" alt=""></div>
+          <p class="chat-message">
+            {{msg.msg}}
+          </p>
+        </div> -->
+      </div>
 
-           <div class="lol">
-                <button @click="sendMsg" class="btn"></button>
-           </div>
-        </form>
-    </footer>
+      <div class="chat-form">
+        <textarea v-model="msg"></textarea>
+        <button @click="sendMsg">send</button>
+      </div>
+    </div>
 
-</div>
+  </div>
 </template>
 
 <script>
-export default {
+  export default {
+    props: ['title','myMsg','msgFromOther'],
+    methods: {
 
-    methods:{
-
-        sendMsg(){
-           this.myMsg.push({msg: this.msg})
-           this.msg = ''
-        }
+      sendMsg() {
+        this.self.push({
+          msg: this.msg
+        })
+        this.msg = ''
+      }
 
     },
-    data(){
-        return{
-            msg: '',
-            msgFromOther:[
-                {
-                    id: 0,
-                    name: 'suraj',
-                    msg: 'hello therehow are you'
-                },
-                {
-                    id: 1,
-                    name: 'asd',
-                    msg: 'alnada flana you'
-                },
-                {
-                    id: 2,
-                    name: 'asdfa',
-                    msg: 'howdid'
-                },
-                {
-                    id: 3,
-                    name: 'awer',
-                    msg: 'therehow are you'
-                }
-            ],
-            myMsg:[],
-            myMsgLen: false
-        }
+
+
+    data() {
+      return {
+        friend: this.myMsg,
+        self: this.msgFromOther,
+        img2: 'https://avatars2.githubusercontent.com/u/24357511?s=460&v=4',
+        img: 'https://avatars3.githubusercontent.com/u/25266614?s=400&u=771e830e8a5b994b14e84208b8fdea62c732b282&v=4',
+        msg: '',
+        myMsgLen: false
+      }
     }
-  
-}
+
+  }
+
 </script>
 
 <style scoped>
-
-.main-body{
+  .main-body {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 60px;
     right: 0;
-}
+  }
 
-/* header  */
-header{
-}
-.navbar{
+  /* header  */
+
+  header {}
+
+  .navbar {
     height: 50px;
     opacity: 0.5;
-}
+  }
 
-/* header ends */
-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    margin-left: 60px;
-}
+  /* section ends  */
 
-form{
+  .chatbox{
+    width: 500px;
+    min-width: 390px;
+    height: 600px;
+    background: rgba(0, 0, 0, .1);
+    padding: 0px;
+    margin: 20px auto;
+  }
+  .chatlogs{
+    padding: 10px;
     width: 100%;
+    height: 500px;
+    overflow-x: hidden; 
+    overflow-y: scroll;
+    overflow: auto;
+  }
+  .chatlogs::-webkit-scrollbar{
+    width: 10px;
+  }
+  .chatlogs::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background: rgba(0, 0, 0, .1);
+  }
+  .chat{
     display: flex;
-    justify-content: center;
-    padding-left: 200px;
-}
-
-form input{
-    flex-basis: 80%;
-    border-radius: 50px;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .chat .user-photo{
+    width: 60px;
+    height: 60px;
+    background: #cccccc;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .chat .user-photo img{
+    width: 100%;
+  }
+  .chat .chat-message{
+    width: 80%;
+    padding: 15px;
+    margin: 5px 10px 0;
+    background: springgreen;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 18px;
+  }
+  .friend .chat-message{
+    background: #1adda4;
+  }
+  .self .chat-message{
+    background:springgreen;
+    order: -1;
+  }
+  .chat-form{
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .chat-form textarea{
+    background: whitesmoke;
+    width: 75%;
+    border-radius: 10px;
+    margin-left: 10px;
+    resize: none;
+    font-size: 18px;
+    color: #000;
+  }
+  .chat-form textarea:focus{
+    background: #fff;
+  }
+   .chat-form textarea::-webkit-scrollbar{
+    width: 10px;
+  }
+  .chat-form textarea::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background: rgba(0, 0, 0, .1);
+  }
+  .chat-form button{
+    background: springgreen;
     border: none;
-    opacity: 0.8;
-    font-size: 20px;
-}
+    padding: 5px 15px;
+    font-size: 30px;
+    color: #fff;
+    margin: 0 10px;
+    border-radius: 3px;
+    box-shadow: 0 3px 0 #056e3a;
+    cursor: pointer;
+  }
+   .chat-form button:hover{
+     background: #03fb39;
+   }
 
-form .lol{
-    flex-basis: 20%;
-}
-form button{
+@media (max-width: 500px){
+  .chatbox{
+    padding: 0px;
+    margin: auto;
+  }
+  .chat-form{
+    margin-top: 10px;
+  }
+   .chat-form textarea{
+    background: whitesmoke;
+    width: 42%;
+    border-radius: 10px;
+    margin-left: 0px;
+    resize: none;
+    font-size: 18px;
+    color: #000;
+  }
+  .chat-form button{
+    padding: 1px 5px;
+    font-size: 25px;
+  }
+  .chat .user-photo{
     width: 40px;
     height: 40px;
-    margin-left: 30px;
-    background: url('../../../assets/send-icon.png') no-repeat;
-    background-size: cover;
-}
-@media (max-width: 1000px){
-    form{
-        padding-left: 10px;
-    }
-    form button{
-        margin-left: 0px;
-    }
-} 
-/* section  */
-section{
-    background: transparent;
-    height: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-shrink: inherit;
-    overflow: scroll;
-}
-section .fromOther{
-    height: 100%;
-    flex: 1;
-}
-section .myMsg{
-    height: 100%;
-    flex: 1;
-}
-.small-body{
-    background:whitesmoke;
-    display: inline-block;
-    margin: 20px;
-    border-radius: 10px;
-}
-.small-body p{
-    margin: 0;
-    padding: 2px;
-}
-.message-fromme{
-    text-align: right;
-}
-.small-body-me{
-    background:lightgreen;
-    display: inline-block;
-    margin: 20px;
-    border-radius: 10px;
-}
-.small-body-me p{
-    margin: 0;
-    padding: 2px;
+  }
+  .chat .chat-message{
+    width: 50%;
+    padding: 5px;
+    font-size: 17px;
+  }
 }
 
-.name{
-    line-break: auto;
-}
 
-/* section ends  */
 </style>

@@ -5,7 +5,7 @@
       </nav>
       
       <section class="main-body">
-          
+          <ch-at title="Teacher Zone"></ch-at>
       </section>
 
   </div>
@@ -14,7 +14,7 @@
 <script>
 
 import Dashnav from './dashnav'
-
+import Chat from './chat/chatUi'
 export default {
   name: 'teachzone',
   data(){
@@ -24,6 +24,7 @@ export default {
   },
   components: {
       'nav-bar': Dashnav,
+      'ch-at': Chat
   }
 }
 </script>

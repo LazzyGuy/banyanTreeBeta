@@ -5,7 +5,7 @@
     </nav>
 
     <section class="main-body">
-      <chat-ui></chat-ui>
+      <ch-at title="Class Room" myMsg="messList" msgFromOther="messList"></ch-at>
     </section>
 
   </div>
@@ -13,7 +13,8 @@
 
 <script>
   import Dashnav from './dashnav'
-  import ChatUi from './chat/chatUi'
+  import Chat from './chat/chatUi'
+
   export default {
     name: 'classroom',
     data() {
@@ -23,23 +24,29 @@
         msg: '',
         count: 1,
         messList: [{
-            id: 0,
-            name: 'suraj',
-            msg: 'hello my name is suraj',
+          id: 0,
+          name: 'suraj',
+          msg: 'hello my name is suraj',
         }]
       }
     },
-    components: {   
+
+    components: {
       'nav-bar': Dashnav,
-      'chat-ui': ChatUi
+      'ch-at': Chat
     },
-    methods:{
-        sendMsg: function(){
-            this.messList.push({id: this.count,name: this.name,msg: this.msg})
-            this.count++
-            console.log(this.messList);
-            
-        }
+
+    methods: {
+      sendMsg: function () {
+        this.messList.push({
+          id: this.count,
+          name: this.name,
+          msg: this.msg
+        })
+        this.count++
+          console.log(this.messList);
+
+      }
     }
   }
 
@@ -47,6 +54,7 @@
 
 
 <style scoped>
+  
   * {
     margin: 0;
     padding: 0;
@@ -58,5 +66,5 @@
     height: 100vh;
     margin-left: 60px;
   }
-  
+
 </style>

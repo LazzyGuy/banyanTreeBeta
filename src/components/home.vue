@@ -89,7 +89,9 @@
     </div>
 
     <div class="chatroom">
-      
+      <div class="img-for-chat-room">
+        <img src="../assets/about/chatroom.svg">
+      </div>
       <div class="text-for-chat-room">
         <h1>Display 1</h1>
         <p>
@@ -97,10 +99,6 @@
           esse, in voluptatem ex voluptates nemo tempora pariatur voluptatum ipsa? Placeat cum omnis dolore.
         </p>
         <button class="btn btn-outline-dark">Create a account to know more</button>
-      </div>
-
-      <div class="img-for-chat-room">
-        <img src="../assets/about/chatroom.svg">
       </div>
     </div>
 
@@ -536,100 +534,74 @@
     }
   }
 
-
+/* next level shit */
   .whybanyantree {
-    background: whitesmoke;
+    background: transparent;
     display: flex;
-    justify-content: space-between;
-    padding: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
   }
 
   .classroom-show-text {
-    padding-left: 100px;
+    /* padding-left: 100px; */
+    text-align: center;
   }
 
   .classroom-show-text h1 {
     color: gray;
-    font-size: 80px;
+    font-size: 50px;
     padding-bottom: 10px;
   }
 
   .classroom-show-text button {
-    font-size: 20px;
+    font-size: 15px;
 
   }
 
   .classroom-show-text p {
     color: gray;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .classroom-show img {
-    height: 500px;
-    width: 500px;
+    height: 350px;
+    width: 350px;
   }
-
-  @media (max-width: 1123px) {
-
-    .classroom-show-text h1 {
-      font-size: 50px;
-    }
-
-    .classroom-show-text p {
-      font-size: 25px;
-    }
-
-  }
-
-  @media (max-width: 1000px) {
-
-    .classroom-show-text h1 {
-      font-size: 50px;
-    }
-    .classroom-show-text button {}
-
-    .classroom-show-text p {
-      font-size: 25px;
-    }
-    .classroom-show img {
-      height: 400px;
-      width: 400px;
-    }
-
-  }
-
-
   /* chat section */
 
   .chatroom{
-    background: black;
+    background: transparent;
     display: flex;
-    justify-content: space-between;
-    padding: 100px;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
   }
   .text-for-chat-room {
-    padding-right: 100px;
+    text-align: center;
   }
 
   .text-for-chat-room h1 {
     color: gray;
-    font-size: 80px;
+    font-size: 50px;
     padding-bottom: 10px;
   }
 
   .text-for-chat-room button {
-    font-size: 20px;
+    font-size: 15px;
 
   }
 
   .text-for-chat-room p {
     color: gray;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .img-for-chat-room img {
-    height: 500px;
-    width: 500px;
+    height: 350px;
+    width: 350px;
     animation: fromleft 3s 1s 1 linear;
   }
   @keyframes fromleft {

@@ -100,15 +100,12 @@ export default {
   margin-left: 60px;
 }
 .banyan-container{
-  text-align: left;
-  height: 100%;
+  height: auto;
+  position: absolute;
   top: 0;
-  width: 100%;
-  display: flex;
+  bottom: 0;
+  width: auto;
   background: url('../../assets/newbg.svg');
-  justify-content: center;
-  overflow: hidden;
-  position: fixed;
 }
 .display,
 .button-group{
