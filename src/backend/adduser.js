@@ -24,7 +24,7 @@ function addEmailAndPasswordToDb(email,fname,lname,username,router){
         verified: false
     }).then(()=>{
         router.push('/home')
-    })
+    })   
 }
  
 // function used by the frontend

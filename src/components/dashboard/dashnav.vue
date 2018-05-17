@@ -49,6 +49,7 @@
 <script>
 
 import {logout} from '../../backend/logout'
+  import confirmUser from '../../backend/confirmuser'
   export default {
     name: 'dashnav',
 
@@ -60,6 +61,9 @@ import {logout} from '../../backend/logout'
     props:['a','b','c','d'],
 
     created(){
+    },
+    beforeMount(){
+      confirmUser(this.$router);
     },
 
     methods: {

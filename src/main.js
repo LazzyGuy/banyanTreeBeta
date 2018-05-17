@@ -7,7 +7,7 @@ import 'firebase'
 import 'bootstrap'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.js'
-
+import {store} from '../store/index'
 import 'bootstrap'
 var firebase = require('firebase')
 
@@ -15,6 +15,7 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
+  store: store,
   el: '#app',
   router,
   template: '<App/>',

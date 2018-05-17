@@ -15,6 +15,7 @@
 
 import Dashnav from './dashnav'
 import Chat from './chat/chatUi'
+  import confirmUser from '../../backend/confirmuser'
 export default {
   name: 'gang',
   data(){
@@ -22,6 +23,9 @@ export default {
           c: true
       }
   },
+  beforeMount(){
+      confirmUser(this.$router);
+    },
   components: {
       'nav-bar': Dashnav,
       'ch-at': Chat

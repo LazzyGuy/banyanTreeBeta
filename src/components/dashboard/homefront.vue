@@ -55,100 +55,37 @@
 <script>
   import Dashnav from './dashnav'
   import Card from './smallcomponents/card'
-
+  import confirmUser from '../../backend/confirmuser'
+  import { updateCard } from '../../backend/cardDataUpdate'
   export default {
     name: 'homefront',
     data() {
       return {
         a: true,
-        name: 'User',
         newmessage: '',
-
         id: 11,
-
-        colorObject: {
-          'bg-primary': false,
-          'bg-secondary': false,
-          'bg-success': false,
-          'bg-danger': false,
-          'bg-warning': false,
-          'bg-info': false,
-          'bg-light': false,
-          'bg-dark': false,
-          'bg-white': false
-        },
-
         randomColor: 0,
-
-        cards: [{
-            id: 1,
-            message: 'Hello friends tommorow is holiday as teachers said.',
-            name: 'Suraj Negi'
-          },
-          {
-            id: 2,
-            message: 'Lorem ipsum dolor sit ame',
-            name: 'Akash Negi'
-          },
-          {
-            id: 3,
-            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nisi. Pariatur eaqu',
-            name: 'Amit sksena'
-          },
-          {
-            id: 4,
-            message: 'Lorem ipsum dolor sit amet ',
-            name: 'Carry minati'
-          },
-          {
-            id: 5,
-            message: 'Lorem ipsum dolor sit amet conse',
-            name: 'Rollar bhai'
-          },
-          {
-            id: 6,
-            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nisi. Pariatur ea',
-            name: 'Tutiya insan'
-          },
-          {
-            id: 7,
-            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            name: 'kaalu mama'
-          },
-          {
-            id: 8,
-            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nisi. Pariatur eaque, ',
-            name: 'teda kumar'
-          },
-          {
-            id: 9,
-            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nisi. Pariatur eaque, exercitationem dolor, quam consectetur obcaecati deserunt tempore explicab',
-            name: 'Subham nai'
-          },
-          {
-            id: 10,
-            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nisi. Pariatur eaque, exercitationem dolor, quam consectetur obcaecati deserunt tempore explicabo, ex voluptas ullam iusto accusantium neque excepturi animi necessitatibus enim?Cupiditate id mollitia cum ',
-            name: 'Tkla lolia'
-          }
-        ],
-
         noOfCards: 0,
-        breakLoop: true,
-        countOfForLoop: 0
+        breakLoop: true
+      }
+    },
+    computed:{
+      cards(){
+        return this.$store.state.cards
+      },
+      name(){
+        return this.$store.state.username
       }
     },
     created() {
       this.noOfCards = this.cards.length
     },
+    beforeMount(){
+      confirmUser(this.$router);
+    },
     methods: {
       postCard: function () {
-        this.cards.unshift({
-          id: this.id,
-          message: this.newmessage,
-          name: this.name
-        })
-        this.newmessage = ''
-        this.id++
+        updateCard(this.newmessage,this.name)
       },
 
       colorTheTile: function () {

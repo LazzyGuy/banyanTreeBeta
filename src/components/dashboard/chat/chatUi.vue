@@ -12,13 +12,15 @@
       <div class="chatlogs">
 
 
-        <div class="chat" v-class="{'friend': isFriend,'self': isSelf}" v-for="msg in friend" v-bind:key="msg.id">
+        <div class="chat" v-for="msg in friend" v-bind:key="msg.id">
           <div class="user-photo"><img :src="img2" alt=""></div>
           <p class="chat-message">
             {{msg.msg}}
           </p>
         </div>
 
+        <!-- <div class="chat" v-class="{'friend': isFriend,'self': isSelf}" v-for="msg in friend" v-bind:key="msg.id">
+          <div class="user-photo"><img :src="img2" alt=""></div> -->
 
         <!-- <div class="chat self" v-for="msg in self" v-bind:key="msg.id">
           <div class="user-photo"><img :src="img" alt=""></div>

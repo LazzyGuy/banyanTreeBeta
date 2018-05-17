@@ -15,6 +15,7 @@
 
 import Dashnav from './dashnav'
 import Chat from './chat/chatUi'
+  import confirmUser from '../../backend/confirmuser'
 export default {
   name: 'teachzone',
   data(){
@@ -22,6 +23,9 @@ export default {
           d: true
       }
   },
+  beforeMount(){
+      confirmUser(this.$router);
+    },
   components: {
       'nav-bar': Dashnav,
       'ch-at': Chat

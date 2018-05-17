@@ -14,7 +14,7 @@
 <script>
   import Dashnav from './dashnav'
   import Chat from './chat/chatUi'
-
+  import confirmUser from '../../backend/confirmuser'
   export default {
     name: 'classroom',
     data() {
@@ -29,6 +29,10 @@
           msg: 'hello my name is suraj',
         }]
       }
+    },
+
+    beforeMount(){
+      confirmUser(this.$router);
     },
 
     components: {
