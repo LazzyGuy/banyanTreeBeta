@@ -80,7 +80,9 @@ import {logout} from '../../backend/logout'
         this.$router.push('/gang')
       },
       logoutUser: function(){
-        logout(this.$router)
+        if(logout(this.$router)){
+          this.$router.push("/")
+        }
       },
       showSetting: function(){
         this.$router.push("/settings")

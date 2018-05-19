@@ -6,7 +6,7 @@ function checkForUser(email,password,router){
   auth.signInWithEmailAndPassword(email,password).then(()=>{
     auth.onAuthStateChanged(function(user){
         if(user){
-            router.push('/home')
+            return true
         }
     })
   })

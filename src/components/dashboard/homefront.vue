@@ -57,6 +57,9 @@
   import Card from './smallcomponents/card'
   import confirmUser from '../../backend/confirmuser'
   import { updateCard } from '../../backend/cardDataUpdate'
+  import {
+    logInUser
+  } from '../../backend/loginuser.js'
   export default {
     name: 'homefront',
     data() {
@@ -74,18 +77,20 @@
         return this.$store.state.cards
       },
       name(){
-        return this.$store.state.username
+        return this.$store.state.currentUser.name
       }
     },
     created() {
-      this.noOfCards = this.cards.length
+      // this.noOfCards = this.cards.length
     },
     beforeMount(){
       confirmUser(this.$router);
     },
     methods: {
       postCard: function () {
-        updateCard(this.newmessage,this.name)
+        // updateCard(this.newmessage,this.name)
+        console.log(this.$store.state.db);
+        
       },
 
       colorTheTile: function () {

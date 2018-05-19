@@ -1,24 +1,31 @@
 import Vue from 'vue'
-import Vuex from 'Vuex'
-import firebase from 'firebase'
-import config from "../src/backend/config";
+import Vuex from 'vuex'
 
-const auth = firebase.auth()
-const db = firebase.database() 
 
+import { getUid } from '../src/backend/forStore'
 Vue.use(Vuex)
 
 
 
 export const store = new Vuex.Store({
   state: {
-    username: 'suraj',
-    name: '',
-    userEmail: '',
-    cards: []
+    logEmail: '',
+    logPassword: '',
+    cards: [],
+    Uid: '',
+    currentUser: {
+      name: '',
+      id: null,
+      profileUrl: null,
+      description: null
+    }
   },
-  mutations:{
-    set
+  
+  mutations: {
+    setData(state) {
+      state.Uid = getUid();
+      console.log(state.Uid);
+    }
   }
 })
 

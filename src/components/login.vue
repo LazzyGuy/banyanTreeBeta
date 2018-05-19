@@ -48,7 +48,12 @@ export default {
 
     methods: {
       validate: function (e) {
-        logInUser(this.email, this.password, this.$router)
+        this.$store.state.logEmail = this.email
+        this.$store.state.logPassword = this.password
+        if(logInUser(this.email, this.password, this.$router)){
+          this.$store.commit('setData')
+          this.$router.push("/home")
+        }
         e.preventDefault()
       }
       // TODO: CHECK

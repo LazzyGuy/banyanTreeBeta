@@ -3,7 +3,7 @@ import firebase from 'firebase'
 
 export function logout(router){
   firebase.auth().signOut().then(function() {
-    router.push("/")
+    return true
   }).catch(function(error) {
     console.log(error.message)
   });

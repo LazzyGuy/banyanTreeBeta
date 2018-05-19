@@ -9,9 +9,9 @@
         <template slot="image">
           <img v-bind:src="profileImage">
         </template>
-        <template slot="title">{{user.name}}</template>
-        <template slot="cog">{{user.school}}</template>
-        <template slot="about">{{user.about}}</template>
+        <template slot="title">{{name}}</template>
+        <template slot="cog">{{school}}</template>
+        <template slot="about">{{about}}</template>
 
       </ca-rd>
     </div>
@@ -27,13 +27,22 @@
 
     data() {
       return {
-        profileImage: 'https://avatars3.githubusercontent.com/u/25266614?s=400&u=771e830e8a5b994b14e84208b8fdea62c732b282&v=4',
-        user: {
-          name: 'Suraj negi',
-          age: 21,
-          school: 'Graphic Era Hill',
-          about: 'Hello my name is suraj negi i am a student of graphic era hill university.'
-        }
+        
+      }
+    },
+
+    computed:{
+      profileImage(){
+        return this.$store.state.currentUser.profileUrl
+      },
+      name(){
+        return this.$store.state.currentUser.name
+      },
+      school(){
+        return this.$store.state.currentUser.school
+      },
+      about(){
+        return this.$store.state.currentUser.description
       }
     },
 
