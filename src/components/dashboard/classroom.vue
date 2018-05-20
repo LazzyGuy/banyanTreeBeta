@@ -31,8 +31,8 @@
       }
     },
 
-    beforeMount(){
-      confirmUser(this.$router);
+    created(){
+      confirmUser(this.$router,this.$store.state.logOut);
     },
 
     components: {

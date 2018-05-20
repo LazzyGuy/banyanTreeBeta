@@ -49,7 +49,6 @@
 <script>
 
 import {logout} from '../../backend/logout'
-  import confirmUser from '../../backend/confirmuser'
   export default {
     name: 'dashnav',
 
@@ -63,7 +62,6 @@ import {logout} from '../../backend/logout'
     created(){
     },
     beforeMount(){
-      confirmUser(this.$router);
     },
 
     methods: {
@@ -80,9 +78,13 @@ import {logout} from '../../backend/logout'
         this.$router.push('/gang')
       },
       logoutUser: function(){
-        if(logout(this.$router)){
-          this.$router.push("/")
-        }
+        this.$store.commit('logout')
+        logout()
+        this.$router.push({
+          name: 'home'
+        })
+        console.log(this.$store.state.logOut);
+        
       },
       showSetting: function(){
         this.$router.push("/settings")

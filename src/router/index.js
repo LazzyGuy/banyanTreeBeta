@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/home'
-import Login from '@/components/login'
-import Signup from '@/components/signup'
+import Home from '../components/home'
+import Login from '../components/login'
+import Signup from '../components/signup'
 import Homefront from '../components/dashboard/homefront'
 import ClassRoom from '../components/dashboard/classroom'
 import Gang from '../components/dashboard/gang'
@@ -13,17 +13,6 @@ import otherprofile from '../components/profileview/otherprofile'
 import change from '../components/profileview/change'
 import page404 from '../components/404page/404';
 Vue.use(Router)
-
-function checkIfLoggedIn(){
-  firebase.auth().onAuthStateChanged(function(user){
-      if(user){
-        return true
-      }
-      else{
-        return false
-      }
-  })
-}
 
 export default new Router({
   routes: [

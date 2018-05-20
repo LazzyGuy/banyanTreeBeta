@@ -82,9 +82,10 @@
     },
     created() {
       // this.noOfCards = this.cards.length
+      confirmUser(this.$router,this.$store.state.logOut);
     },
     beforeMount(){
-      confirmUser(this.$router);
+      
     },
     methods: {
       postCard: function () {

@@ -7,9 +7,9 @@
       </div>
 
       <div class="sidemenu">
-        <router-link class="btn-link" to="/why">Why banyanTree?</router-link>
+        <a class="btn-link" href="#whybanyantree" @click="showAnime">Why banyanTree?</a>
         <router-link class="btn-link" to="/signup">Join Us</router-link>
-        <router-link class="btn-link" to="/about">About Us</router-link>
+        <a class="btn-link" href="#aboutus">About Us</a>
         <router-link class="btn-btn" to="/login">Your Classroom</router-link>
       </div>
 
@@ -35,13 +35,13 @@
         <div class="overlay-content">
           <ul>
             <li>
-              <router-link class="btn btn-link-over" to="/">Why banyanTree?</router-link>
+              <a class="btn btn-link-over" href="#whybanyantree">Why banyanTree?</a>
             </li>
             <li>
               <router-link class="btn btn-link-over" to="/signup">Join Us</router-link>
             </li>
             <li>
-              <router-link class="btn btn-link-over " to="/">About Us</router-link>
+              <a class="btn btn-link-over " href="#aboutus">About Us</a>
             </li>
             <li>
               <router-link class="btn btn-down btn-success btn-lg btn-block text-white btn-btn-over" to="/login">Classroom login</router-link>
@@ -52,9 +52,10 @@
         </div>
 
       </div>
-      <!-- navigation menu ends -->
+
 
     </nav>
+    <!-- navigation menu ends -->
 
     <div class="motto-section">
       <div class="message1">
@@ -74,31 +75,43 @@
       </div>
     </div>
 
-    <div class="whybanyantree">
-      <div class="classroom-show">
-        <img src="../assets/about/classroom.svg">
+    <div class="whybanyantree" id="whybanyantree" >
+      <div class="title-why">
+        <h1>Joining <b>STUDENT</b> and <b>Teacher</b> together.</h1>
       </div>
-      <div class="classroom-show-text">
-        <h1>Display 1</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur optio eligendi veritatis suscipit totam saepe iure
-          esse, in voluptatem ex voluptates nemo tempora pariatur voluptatum ipsa? Placeat cum omnis dolore.
-        </p>
-        <button class="btn btn-outline-dark">Create a account to know more</button>
-      </div>
+        <div class="animation">
+          <div class="student">
+            <img src="../../static/student.png" alt="student">
+          </div>
+          <div class="logo">
+            <img src="../assets/icon.png" v-bind:class="{'anime-logo': whyAnime}" alt="logo">
+          </div>
+          <div class="teacher">
+            <img src="../../static/teacher.png" alt="teacher">
+          </div>
+        </div>
     </div>
 
-    <div class="chatroom">
-      <div class="img-for-chat-room">
-        <img src="../assets/about/chatroom.svg">
+    <div class="aboutus" id="aboutus">
+      <div class="intro">
+        <h1>Our Team </h1>
       </div>
-      <div class="text-for-chat-room">
-        <h1>Display 1</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur optio eligendi veritatis suscipit totam saepe iure
-          esse, in voluptatem ex voluptates nemo tempora pariatur voluptatum ipsa? Placeat cum omnis dolore.
-        </p>
-        <button class="btn btn-outline-dark">Create a account to know more</button>
+      <div class="team">
+        <div class="sid">
+          <img src="../assets/profile/me1.jpg" alt="">
+          <h4>Siddhart Narwani</h4>
+          <p>Markting planner</p>
+        </div>
+        <div class="suraj">
+          <img src="../../static/suraj.jpg" alt="">
+          <h4>Suraj Negi</h4>
+          <p>Lead Developer</p>
+        </div>
+        <div class="ravi">
+          <img src="../../static/ravi.jpg" alt="">
+          <h4>Ravi Martolia</h4>
+          <p>Lead Designer</p>
+        </div>
       </div>
     </div>
 
@@ -135,7 +148,8 @@
     name: 'home',
     data() {
       return {
-        close: ''
+        close: '',
+        whyAnime: false
       }
     },
     methods: {
@@ -149,8 +163,10 @@
         this.$router.push({
           name: 'signup'
         })
+      },
+      showAnime() {
+        this.whyAnime = !this.whyAnime;
       }
-
     },
     created() {
       // forHome()
@@ -160,11 +176,16 @@
 </script>
 
 <style scoped>
+body{
+  background: #fbfbfb;
+}
   .main {
+    overflow-x: hidden;
     width: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
+    height: 100vh;
     background: linear-gradient(rgba(113, 129, 113, 0.3), rgba(75, 78, 75, 0.3)), url('../assets/bg3.jpeg') no-repeat;
     background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -173,6 +194,12 @@
 
   nav {
     height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: #fbfbfb;
   }
 
   .logo {
@@ -198,7 +225,7 @@
 
   .btn-link,
   .btn-btn {
-    color: white;
+    color: springgreen;
     text-decoration: none;
     margin: 10px;
     padding: 20px;
@@ -209,21 +236,21 @@
   }
 
   .btn-btn {
-    color: white;
-    border: 1px solid white;
+    color: springgreen;
+    border: 1px solid springgreen;
     padding: 10px;
     border-radius: 20px;
   }
 
   .btn-btn:hover {
-    color: springgreen;
-    border: 1px solid green;
+    color: #a09ca0;
+    border: 1px solid #a09ca0;
   }
 
   /* TODO: HOVER EFFECT NOT WORKING WHEN DEPLOYED */
 
   .btn-link:hover {
-    color: springgreen;
+    color: #a09ca0;
     /* border-bottom: 1px solid springgreen; */
   }
 
@@ -374,8 +401,7 @@
     height: 84vh;
     flex: 1;
     padding: 0px;
-    margin-top: 40px;
-    ;
+    margin-top: 120px;
   }
 
   .message1 h2 {
@@ -482,7 +508,8 @@
   /* /* page 1 ends */
 
   footer {
-    height: 50vh;
+    height: 80vh;
+    background: transparent;
     color: springgreen;
     text-align: center;
   }
@@ -512,7 +539,7 @@
   }
 
   .socialmedia {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   .socialmedia .icon {
@@ -534,84 +561,139 @@
     }
   }
 
-/* next level shit */
+  /* whybanyantree section */
+
   .whybanyantree {
-    background: transparent;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    padding: 20px;
+    min-height: 100vh;
+    min-width: 100%;
+    background: #fbfbfb;
   }
 
-  .classroom-show-text {
-    /* padding-left: 100px; */
+  .animation {
+    min-height: 85vh;
+    min-width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+
+  .animation .student img {
+    height: 300px;
+    width: 400px;
+    animation: colse 6s infinite;
+  } 
+
+  @keyframes colse {
+    to{
+      margin-left: 100px;
+    }form{
+      margin-left: -200px;
+    }
+  }
+
+
+
+  .animation .logo img {
+    height: 200px;
+    width: 150px;
+    margin-top: -300px;
+  }
+  .anime-logo{
+    animation: float 2s 0.5ms;
+  }
+  @keyframes float {
+    from{
+      margin-top: -1000px;
+      transform: rotate(0deg);
+    }
+    to{
+      margin-top: 20px;
+      transform: rotate(360deg);
+    }
+  }
+
+  .animation .teacher img {
+    height: 300px;
+    width: 300px;
+    animation: colse2 6s infinite;
+  }
+  @keyframes colse2 {
+    to{
+      margin-right: 100px;
+    }form{
+      margin-right: -200px;
+    }
+  }
+
+  .title-why{
+    position: relative;
+    top: 100px;
+    left: 0;
+    right: 0;
+    min-width: 100%;
     text-align: center;
   }
-
-  .classroom-show-text h1 {
-    color: gray;
+  .title-why h1{
     font-size: 50px;
-    padding-bottom: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .title-why b{
+    color: grey;
   }
 
-  .classroom-show-text button {
-    font-size: 15px;
+  /* about us section */
 
+  .aboutus {
+    min-height: 100vh;
+    text-align: center;
+    background: #fbfbfb;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;    
   }
-
-  .classroom-show-text p {
+  .intro h1{
+    min-width: 100%;
+    text-align: center;
+    font-size: 45px;
+    font-weight: lighter;
     color: gray;
+    position: relative;
+    top: 100px;
+    left: 0;
+    right: 0;
+  }
+  .team{
+    min-width: 50%;
+    margin: 200px 100px;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+  }
+  .team img{
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    transition: 2s;
+    /* box-shadow: 2px 3px 5px 0px  #242424 */
+  }
+  .team img:hover{
+    transform: scale(1.1);
+  }
+  .team h4{
+    color: #242424;
+    font-weight: 400;
+    line-height: 50px;
+  }
+
+  .team p{
+    color: #a09ca0;
     font-size: 20px;
   }
 
-  .classroom-show img {
-    height: 350px;
-    width: 350px;
-  }
-  /* chat section */
 
-  .chatroom{
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding: 20px;
-    flex-wrap: wrap;
-  }
-  .text-for-chat-room {
-    text-align: center;
-  }
 
-  .text-for-chat-room h1 {
-    color: gray;
-    font-size: 50px;
-    padding-bottom: 10px;
-  }
-
-  .text-for-chat-room button {
-    font-size: 15px;
-
-  }
-
-  .text-for-chat-room p {
-    color: gray;
-    font-size: 20px;
-  }
-
-  .img-for-chat-room img {
-    height: 350px;
-    width: 350px;
-    animation: fromleft 3s 1s 1 linear;
-  }
-  @keyframes fromleft {
-    0%{
-      opacity: 0;
-    }
-    100%{
-      opacity: 1;
-    }
-
-  }
 
 </style>

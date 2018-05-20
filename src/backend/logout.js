@@ -1,9 +1,9 @@
 import config from './config'
 import firebase from 'firebase'
 
-export function logout(router){
+export function logout(){
   firebase.auth().signOut().then(function() {
-    return true
+    console.log('loged out');
   }).catch(function(error) {
     console.log(error.message)
   });
